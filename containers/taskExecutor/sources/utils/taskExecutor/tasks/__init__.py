@@ -74,5 +74,6 @@ from .naiveFormula0 import NaiveFormula0
 from .naiveFormula1 import NaiveFormula1
 from .naiveFormula2 import NaiveFormula2
 from .naiveFormula3 import NaiveFormula3
+from .Fibonacci0 import Fibonacci0
 from .ocr import OCR
 from .testTask import TestTask

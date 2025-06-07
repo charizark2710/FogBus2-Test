@@ -10,6 +10,7 @@ from ..applications import GameOfLifeSerialized
 from ..applications import NaiveFormulaParallelized
 from ..applications import NaiveFormulaSerialized
 from ..applications import VideoOCR
+from ..applications import FibonacciDemo1
 from ...component.basic import BasicComponent
 
 
@@ -19,6 +20,7 @@ def initActuator(
         label: str,
         showWindow: bool,
         basicComponent: BasicComponent,
+        fibonacci_size: int,
         golInitText: str) -> Union[ApplicationUserSide, None]:
     actuator = None
     if appName == 'FaceDetection':
@@ -78,4 +80,11 @@ def initActuator(
             targetHeight=int(label),
             showWindow=showWindow,
             basicComponent=basicComponent)
+    elif appName == 'FibonacciDemo1':
+        actuator = FibonacciDemo1(
+            videoPath=videoPath,
+            targetHeight=int(label),
+            showWindow=showWindow,
+            basicComponent=basicComponent,
+            fibonacci_size=fibonacci_size)
     return actuator

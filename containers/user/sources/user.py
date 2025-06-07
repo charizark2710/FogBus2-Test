@@ -31,6 +31,7 @@ class User:
             videoPath: str,
             golInitText: str,
             containerName: str = '',
+            fibonacci_size: int = 70000,
             logLevel=DEBUG):
         self.containerName = containerName
         self.basicComponent = BasicComponent(
@@ -56,7 +57,8 @@ class User:
             videoPath=videoPath,
             showWindow=showWindow,
             basicComponent=self.basicComponent,
-            golInitText=golInitText)
+            golInitText=golInitText,
+            fibonacci_size=fibonacci_size)
         if self.actuator is None:
             self.basicComponent.debugLogger.error(
                 'Application is not supported: %s',
@@ -203,6 +205,13 @@ def parseArg():
         default='Qifan Deng',
         type=str,
         help='GameOfLife initial world text')
+    parser.add_argument(
+        '--fibonacciSize',
+        metavar='FibonacciSize',
+        nargs='?',
+        default=0,
+        type=int,
+        help='Fibonacci size, default 0')
     return parser.parse_args()
 
 
@@ -218,5 +227,6 @@ if __name__ == "__main__":
         showWindow=args.showWindow,
         videoPath=args.videoPath,
         golInitText=args.golInitText,
-        logLevel=args.verbose)
+        logLevel=args.verbose,
+        fibonacci_size=args.fibonacciSize)
     user_.run()

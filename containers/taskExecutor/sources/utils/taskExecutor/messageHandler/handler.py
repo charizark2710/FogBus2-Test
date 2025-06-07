@@ -93,7 +93,7 @@ class TaskExecutorMessageHandler:
         self.task.updateProcessingTime(processingTime)
         if result is None:
             return
-        # print(self.task.taskName, self.registrationManager.childrenAddresses)
+        print(self.task.taskName, self.registrationManager.childrenAddresses)
         if len(self.registrationManager.childrenAddresses.keys()):
             data['intermediateData'] = result
             for addr in self.registrationManager.childrenAddresses.values():

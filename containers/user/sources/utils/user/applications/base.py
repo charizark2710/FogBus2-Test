@@ -21,7 +21,8 @@ class ApplicationUserSide:
             videoPath: str = None,
             targetHeight: int = 640,
             showWindow: bool = True,
-            pressSpaceToStart: bool = False):
+            pressSpaceToStart: bool = False,
+            fibonacci_size: int = 0):
         self.pressSpaceToStart = pressSpaceToStart
         self.basicComponent = basicComponent
         self.appName = appName
@@ -42,6 +43,7 @@ class ApplicationUserSide:
         self.responseTime = SequenceMedian(maxRecordNumber=10)
         self.responseTimeCount = 0
         self.windowFrameQueue = None
+        self.fibonacci_size = fibonacci_size
         if self.showWindow:
             self.windowFrameQueue: Queue[Tuple[str, Any]] = Queue(1)
         self.interval = 1 / 60
